@@ -186,8 +186,10 @@ class MainScene extends Phaser.Scene {
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
-                    this.overlayImages[this.currentZoneIndex - 1].setVisible(false);
-                    this.closeButton.setVisible(false);
+		    try {
+                        this.overlayImages[this.currentZoneIndex - 1].setVisible(false);
+                        this.closeButton.setVisible(false);
+		    } catch(e) {}
                 }
             });
         });
@@ -234,7 +236,7 @@ class MainScene extends Phaser.Scene {
     createMobileXButton() {
         if (this.isMobile()) {
             this.mobileXButton = this.add.image(this.cameras.main.width - 150, this.cameras.main.height - 150, 'mobileXButton').setInteractive();
-            this.mobileXButton.setDisplaySize(100, 100);
+            this.mobileXButton.setDisplaySize(130, 130);
             this.mobileXButton.setVisible(false);
 
             this.mobileXButton.on('pointerdown', () => {
@@ -282,8 +284,10 @@ class MainScene extends Phaser.Scene {
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
-                            this.overlayImages[this.currentZoneIndex - 1].setVisible(false);
-                            this.closeButton.setVisible(false);
+                            try {
+                                this.overlayImages[this.currentZoneIndex - 1].setVisible(false);
+                                this.closeButton.setVisible(false);
+		            } catch(e) {}
                         }
                     });
                 }
